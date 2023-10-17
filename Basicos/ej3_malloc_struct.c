@@ -20,9 +20,9 @@ int main () {
 
     for (int i = 0; i < MAX; i++) {
         (**(pt + i)).latitud = (i + 1) * 10;
-	(*(pt + i))->longitud = (i + 1) * 15;
-	//(*(pt + i)).nombre = (char*) malloc(sizeof(char) * 50);
-	scanf("%20s", pt[i]->nombre); // (*(pt + i))->nombre
+	    (*(pt + i))->longitud = (i + 1) * 15;
+	    //(*(pt + i)).nombre = (char*) malloc(sizeof(char) * 50);
+	    scanf("%20s", pt[i]->nombre); // (*(pt + i))->nombre
     }
 
     for (int i = 0; i < MAX; i++) {

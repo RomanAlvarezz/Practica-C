@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -16,15 +15,15 @@ int main () {
 
     for (int i = 0; i < 10; i++) {
         (*(pt + i)).latitud = (i + 1) * 10;
-	(*(pt + i)).longitud = (i + 1) * 15;
-	//(*(pt + i)).nombre = (char*) malloc(sizeof(char) * 50);
-	scanf("%20s", (*(pt + i)).nombre);
+	    (*(pt + i)).longitud = (i + 1) * 15;
+	    //(*(pt + i)).nombre = (char*) malloc(sizeof(char) * 50);
+	    scanf("%20s", (*(pt + i)).nombre);
     }
 
     for (int i = 0; i < 10; i++) {
         printf("nombre: %s\n", (*(pt + i)).nombre);
         printf("latitud: %d\n", (*(pt + i)).latitud);
-	printf("longitud: %d\n", (*(pt + i)).longitud);
+	    printf("longitud: %d\n", (*(pt + i)).longitud);
     }
 
     //int i;
