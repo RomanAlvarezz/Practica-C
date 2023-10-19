@@ -21,9 +21,7 @@ int main () {
 
     ciudades[0] = ciudad1;
     ciudades[1] = ciudad2;
-    ciudades[2] = ciudad3;
-
-    
+    ciudades[2] = ciudad3;  
 
     return 0;
 }
