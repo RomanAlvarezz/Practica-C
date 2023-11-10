@@ -11,7 +11,9 @@ typedef struct persona {
 
 Persona * insertar(Persona * top, Persona * nuevo);
 
-void listado (Persona * top);
+void listado(Persona * top);
+
+Persona * borrar(Persona * top, int n);
 
 int main () {
 
@@ -31,15 +33,23 @@ int main () {
     strcpy(p4->nombre, "Totti");
     p4->edad = 41;
 
-    p1->sig = p2;
-    p2->sig = p3;
-    p3->sig = NULL;
-
-    Persona * top = p1;
+    Persona * top = NULL;
+    top = insertar(top,p2);
     listado(top);
     ESPACIO();
     top = insertar(top,p4);
     listado(top);
+    ESPACIO();
+    top = insertar(top,p1);
+    listado(top);
+    ESPACIO();
+    top = insertar(top,p3);
+    listado(top);
+    ESPACIO();
+
+    borrar(top, 38);
+    listado(top);
+    
 
     return 0;
 }
@@ -55,12 +65,12 @@ Persona * insertar(Persona * top, Persona * nuevo) {
 
     if (anterior != NULL) {
         anterior->sig = nuevo;
-        //nuevo->sig = actual;
+        nuevo->sig = actual;
     } else {
         top = nuevo;
         nuevo->sig = actual;
-        return top;
     }
+    return top;
 }
 
 void listado (Persona * top) {
@@ -70,4 +80,28 @@ void listado (Persona * top) {
         ESPACIO();
         p = p->sig;
     }
+}
+
+Persona * borrar(Persona * top, int n){
+    Persona * p = top;
+    Persona * ant = NULL;
+    Persona * aux;
+
+    while(p){
+        if(p->edad == n){
+            if (ant == NULL){
+                aux = p->sig;
+                free(p);
+                return aux;
+            } else {
+                ant->sig = p->sig;
+                free(p);
+                return top;
+            }
+        }
+        ant = p;
+        p = p->sig;
+    }
+
+    return top;
 }
