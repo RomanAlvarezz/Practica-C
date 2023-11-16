@@ -3,16 +3,30 @@
 
 char * eco(char* cadena);
 void elimFinales(char * cadenaVieja);
+int ** crearMatriz(int col, int filas);
 
 int main () {
 
     printf(" %s\n", eco("Eiwa"));
     elimFinales("Los rosarinos hablamos sin las eses");
+    printf("\n");
+
+    int filas = 4;
+    int columnas = 3;
+    int ** matrizInt = crearMatriz(columnas, filas);
+    int i,j;
+    for (i=0; i<filas; i++) {
+        for (j=0; j<columnas; j++) {
+            //*(*(m + i) + j) = i + j;
+            printf("%c |", matrizInt[i][j]);
+        }
+        printf("\n");
+    }
 
     return 0;
 }
 
-void elimFinales(char * cadenaVieja){
+void elimFinales(char * cadenaVieja) {
     int i,j;
     char cantidad_de_s=0;
     // for (i=0; cadena[i] != '\0'; i++){
@@ -42,7 +56,7 @@ void elimFinales(char * cadenaVieja){
     printf(" %s", cadenaNueva);
 }
 
-char * eco(char* cadena){
+char * eco(char* cadena) {
     int i,j;
     char ultimoChar;
     // for (i=0; cadena[i] != '\0'; i++){
@@ -68,4 +82,22 @@ char * eco(char* cadena){
     cadenaNueva[j] = '\0';
 
     return cadenaNueva;
+}
+
+int ** crearMatriz(int col, int filas) {
+    int i,j;
+
+    int ** puntero_matriz =  malloc(sizeof(int *) * filas);
+
+    for (i=0; i<filas; i++) {
+        *(puntero_matriz + i) = malloc(sizeof(int) * col);
+    }
+
+    for (i=0; i<filas; i++) {
+        for (j=0; j<col; j++) {
+            *(*(puntero_matriz + i) + j) = i + j + 2;
+        }
+    }
+
+    return puntero_matriz;
 }
