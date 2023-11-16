@@ -69,6 +69,7 @@ Persona * insertar(Persona * top, Persona * nuevo) {
     } else {
         top = nuevo;
         nuevo->sig = actual;
+        //top->sig = actual; esto seria lo mismo quela linea que esta arriba
     }
     return top;
 }

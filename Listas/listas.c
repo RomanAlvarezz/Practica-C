@@ -88,6 +88,7 @@ Persona * borrar (Persona * top){
         p = p->sig;
     }
     anterior->sig = NULL;
-
+    free(p);
+    
     return top;
 }
